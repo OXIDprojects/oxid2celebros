@@ -1,0 +1,86 @@
+oxid2celebros Schnittstelle - powered by anzido GmbH & Celebros Ltd
+===================================================================
+
+Dieses Modulpaket stellt eine Schnittstelle zum On-Site-Search-Service
+der Firma Celebros Ltd. zur Verfügung. Eine Nutzung ist nur in Verbindung
+mit einem entsprechenden Vertrag mit einem Celebros-Partner möglich.
+Nähere Informationen dazu erhalten Sie auf Anfrage per Email an: info@anzido.com.
+
+
+Installation:
+--------------
+1. Kopieren Sie den Inhalt des Verzeichnisses "copy_this" in ihr Shop-Verzeichnis.
+
+2. Damit die Celebros-Suche funktionieren kann, müssen Sie zunächst Ihre Artikel-
+   und Kategoriedaten an Celebros übermitteln.
+   Zu diesem Zweck finden Sie 2 Scripte im Verzeichnis "_celebros_export". In beiden
+   Scripten müssen Sie einige Einstellungen vornehmen:
+   
+   export.php:
+   Hier müssen Sie im markierten Block die Zugangsdaten für Ihre Shop-Datenbank
+   eintragen.
+   
+   upload.php:
+   Hier müssen Sie im markierten Block die Zugangsdaten für Ihren Celebros FTP-
+   Account eintragen. Diese Daten erhalten Sie direkt von Celebros.
+   
+   Führen Sie anschließend zunächst das Script "export.php" und dann das Script 
+   "upload.php" manuell einmal aus und kontrollieren Sie, ob die Daten korrekt 
+   exportiert wurden und ob die Dateien auf dem Celebros-Server angekommen sind.
+   Die manuelle Ausführung erreichen Sie, indem Sie mit Ihrem Browser folgende
+   Adressen aufrufen:
+   
+   Export:	http://[Ihre Shop-Adresse]/_celebros_export/export.php
+   Upload:	http://[Ihre Shop-Adresse]/_celebros_export/upload.php
+   
+   Führen Sie die weiteren Installationsschritte bitte erst aus, wenn Sie Ihre
+   Daten erfolgreich auf den Celebros-Server übertragen konnten und wenn Sie
+   anschließend von Celebros die Nachricht bekommen haben, dass Ihre Daten erfolgreich
+   synchronisiert wurden. Dies kann beim ersten Mal einige Tage dauern.
+
+2. Fügen Sie den Inhalt der mitgelieferten Datei "config.inc.php" aus dem Verzeichnis
+   "changed_full" an das Ende der Datei "config.inc.php" in Ihrem Shop-Verzeichnis an.
+   In dem als "Konfiguration" gekennzeichneten Block müssen Sie noch die Werte für
+   Ihren sitekey und Ihre Celebros-Service-URL eintragen. Beide Werte bekommen Sie
+   direkt von Celebros.
+   
+3. Im Verzeichnis "changed_full" finden Sie außerdem unter "out/basic/tpl" noch die
+   Datei "_left.tpl". Die in dieser Datei deutlich markierte Änderung müssen Sie
+   in die gleichnamige Datei Ihres Shops übertragen. Sie sorgt dafür, dass nicht
+   mehr die shopeigene Suche angesteuert wird sondern die Celebros-Suche.
+   
+   
+Nach einer erfolgreichen Installation und entsprechenden Tests können Sie den Daten-
+export und -upload für Celebros automatisieren, indem Sie die beiden Scripte
+/_celebros_export/export.php und /_celebros_export/upload.php regelmäßig über einen
+cronjob ausführen lassen. Zu diesem Zweck müssen Sie möglicherweise die erste Zeile
+in beiden Scripten anpassen - dies hängt von Ihrer Serverkonfiguration ab. Fragen Sie
+dazu ggf. bei Ihrem Hoster nach.
+
+
+
+Weitere Informationen:
+----------------------
+Die hier zur Verfügung gestellte Schnittstelle basiert auf der von der Fa. OXID
+eSales AG hergestellten Celebros-Schnittstelle für die Shopversion EE 2.7. Uns
+wurden die Sourcen freundlicherweise für eine Portierung für OXID 4 zur Verfügung
+gestellt. Das gesamte Paket wird veröffentlicht unter GNU GENERAL PUBLIC LICENSE (GPL).
+
+Das Paket wird kostenlos zur Verfügung gestellt. Bitte haben Sie Verständnis dafür,
+dass wir daher keinerlei Garantien für die Funktionalität übernehmen und auch keinen
+Support für die Schnittstelle leisten werden. Wenn Sie Fragen und/oder Probleme mit
+dem Paket haben sollten, so beschreiben Sie diese bitte im Rahmen eines Beitrages im
+OXID Community Forum (http://www.oxid-esales.com/forum/). Sie werden dort in den
+meisten Fällen Unterstützung von anderen Usern - oder ggf. auch von uns erhalten.
+
+
+Die Fa. anzido GmbH plant für das Jahr 2010 eine völlig neu entwickelte Celebros-
+Schnittstelle für OXID 4. Hier werden dann zum einen einige "Unschönheiten" der
+bisherigen Schnittstelle beseitigt als auch einige komplett neue Features integriert
+werden. Diese neue Schnittstelle wird kostenpflichtig sein und von entsprechenden
+Support-Angeboten begleitet werden.
+
+(C)2009 by anzido GmbH, Dortmund
+   
+   
+
